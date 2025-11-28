@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>牧场打地鼠</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+      body {
+        font-family: 'ZCOOL KuaiLe', sans-serif;
+        overscroll-behavior: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      /* Custom Animations */
+      @keyframes popUp {
+        0% { transform: translateY(100%) scale(0.5); opacity: 0; }
+        50% { transform: translateY(-10%) scale(1.1); opacity: 1; }
+        100% { transform: translateY(0) scale(1); opacity: 1; }
+      }
+      @keyframes popDown {
+        0% { transform: translateY(0) scale(1); opacity: 1; }
+        100% { transform: translateY(100%) scale(0.5); opacity: 0; }
+      }
+      @keyframes hit {
+        0% { transform: scale(1); }
+        50% { transform: scale(0.8) rotate(-10deg); filter: brightness(1.5); }
+        100% { transform: scale(0) rotate(10deg); opacity: 0; }
+      }
+      @keyframes hammerStrike {
+        0% { transform: rotate(45deg) translate(20px, -40px) scale(0.8); opacity: 0; }
+        20% { opacity: 1; transform: rotate(45deg) translate(20px, -40px) scale(1); }
+        40% { transform: rotate(-45deg) translate(-10px, 10px) scale(1.2); }
+        100% { transform: rotate(-45deg) translate(-10px, 10px) scale(1); opacity: 0; }
+      }
+      @keyframes shake {
+        0% { transform: translate(0, 0); }
+        10% { transform: translate(-10px, -10px); }
+        20% { transform: translate(10px, 10px); }
+        30% { transform: translate(-10px, 10px); }
+        40% { transform: translate(10px, -10px); }
+        50% { transform: translate(0, 0); }
+        100% { transform: translate(0, 0); }
+      }
+      @keyframes flashRed {
+        0% { background-color: rgba(255, 0, 0, 0); }
+        20% { background-color: rgba(255, 0, 0, 0.3); }
+        100% { background-color: rgba(255, 0, 0, 0); }
+      }
+      @keyframes floatAway {
+        0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
+        30% { opacity: 1; }
+        100% { transform: translate(20px, -30px) scale(1.2); opacity: 0; }
+      }
+      .animate-pop-up { animation: popUp 0.3s ease-out forwards; }
+      .animate-pop-down { animation: popDown 0.3s ease-in forwards; }
+      .animate-hit { animation: hit 0.2s ease-in forwards; }
+      .animate-hammer { animation: hammerStrike 0.4s ease-out forwards; }
+      .animate-shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+      .animate-flash-red { animation: flashRed 0.5s ease-out forwards; }
+      .animate-float-away { animation: floatAway 0.5s ease-out forwards; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-green-100 h-screen w-screen overflow-hidden text-gray-800">
+    <div id="root" class="h-full w-full"></div>
+  </body>
+</html>
